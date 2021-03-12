@@ -1,1 +1,1 @@
-### Django dictionary app made using PyDictionary
+### Dictionary app made using Django and PyDictionary
