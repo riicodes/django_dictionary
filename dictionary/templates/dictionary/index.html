@@ -1,0 +1,57 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <title>Dictionary</title>
+</head>
+<body>
+<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'index' %}" style="margin-left: 20px">Dictionary</a>
+    </div>
+
+</nav>
+<main style="margin-top: 50px">
+    <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+            <form action="{% url 'result' %}" method="GET">
+                <div class="field is-grouped">
+                    <p class="control is-expanded">
+                        <input class="input" type="text" placeholder="Enter the word" name="word">
+                    </p>
+                    <p class="control">
+                        <button class="button is-dark" type="submit">
+                            Search
+                        </button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="columns is-mobile">
+        <div class="column is-half is-offset-one-quarter">
+            <div class="content">
+                {% if result %}
+                    <p>Meaning: {{ result }}</p>
+                {% endif %}
+                {% if synonyms %}
+                    <p>Synonyms: {% for synonym in synonyms %}{{ synonym }}, {% endfor %}</p>
+                {% endif %}
+                {% if antonyms %}
+                    <p>Antonyms: {% for antonym in antonyms %}{{ antonym }}, {% endfor %}</p>
+                {% endif %}
+                {% if error %}
+                    <p>{{ error }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
