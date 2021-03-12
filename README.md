@@ -1,2 +1,2 @@
-### *[riidictionary](https://riidictionary.herokuapp.com) - Dictionary app made with Django and PyDictionary*
+### *[riidictionary](https://riisdictionary.herokuapp.com) - Dictionary app made with Django and PyDictionary*
 
